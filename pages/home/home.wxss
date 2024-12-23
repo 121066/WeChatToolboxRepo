@@ -1,0 +1,407 @@
+/**index.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: auto;
+  padding-bottom: 20rpx;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+  width: 80%;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.avatar-wrapper {
+  padding: 0;
+  width: 56px !important;
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+.nickname-wrapper {
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.nickname-label {
+  width: 105px;
+}
+
+.nickname-input {
+  flex: 1;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+}
+.tabList {
+  display: flex;
+  flex-direction: row;
+}
+.tabList-item {
+  margin: 0 5px;
+  /* border: 1px solid 3fc746; */
+  padding: 5px 10px;
+  color: #237ffa;
+  border-radius: 2px;
+  /* #3fc746 */
+}
+.calculate {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  justify-content: flex-start;
+}
+.calculate-text {
+  width: 90px;
+  text-align: right;
+}
+.calculate-item {
+  min-width: 200px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 30px;
+  align-items: center;
+}
+.calculate-item-input {
+  border: 1px solid #eee;
+  padding: 5px 5px;
+  border-radius: 4px;
+}
+.border-input {
+  border: none;
+}
+.add {
+  /* background: #ff301c; */
+  background: rgb(226, 243, 254);
+}
+.daily {
+  color: #ff301c;
+}
+.down {
+  color: #3fc746;
+}
+.icon-down {
+  position: relative;
+}
+.icon-down::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 10px;
+  background-color: #3fc746;
+  top: 10px;
+  right: 10px;
+}
+.icon-down::before {
+  position: absolute;
+  content: "";
+
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #3fc746;
+  top: 20px;
+  right: 6px;
+}
+.icon-daily {
+  position: relative;
+}
+.icon-daily::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 10px;
+  background-color: #ff301c;
+  top: 10px;
+  right: 10px;
+}
+.icon-daily::before {
+  position: absolute;
+  content: "";
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #ff301c;
+  top: 5px;
+  right: 6px;
+}
+
+.container {
+  padding: 20rpx;
+  padding-bottom: 20rpx;
+}
+
+.tab-container {
+  display: flex;
+  margin: 20rpx auto;
+  width: 240rpx;
+  height: 56rpx;
+  border-radius: 28rpx;
+  background: #f5f5f5;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  line-height: 56rpx;
+  font-size: 26rpx;
+  position: relative;
+  transition: all 0.3s;
+  color: #666;
+  padding: 0;
+}
+
+.tab-item.active {
+  background: #007aff;
+  color: #fff;
+  font-weight: 500;
+}
+
+.tab-item:not(.active):hover {
+  color: #007aff;
+  opacity: 0.8;
+}
+
+.tab-item:active {
+  opacity: 0.8;
+}
+
+.form-container {
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+  margin-bottom: 20rpx;
+}
+
+.form-item {
+  margin-bottom: 16rpx;
+  display: flex;
+  align-items: center;
+}
+
+.form-item .label {
+  width: 160rpx;
+  font-size: 28rpx;
+  color: #333;
+  margin-right: 20rpx;
+}
+
+.form-item input {
+  flex: 1;
+  height: 72rpx;
+  min-width: 0;
+  border: 2rpx solid #eee;
+  padding: 0 20rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  box-sizing: border-box;
+}
+
+.quick-input {
+  margin: 16rpx 0;
+}
+
+.quick-input .label {
+  font-size: 28rpx;
+  color: #333;
+  margin-bottom: 12rpx;
+  text-align: center;
+}
+
+.quick-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16rpx;
+  padding: 8rpx 0;
+}
+
+.quick-buttons button {
+  margin: 0;
+  height: 64rpx;
+  min-width: 120rpx;
+  font-size: 24rpx;
+  line-height: 64rpx;
+  background: #f5f5f5;
+  color: #333;
+  transition: all 0.3s;
+  padding: 0 24rpx;
+}
+
+.quick-buttons button.active {
+  background: #007aff;
+  color: #fff;
+}
+
+.result-container {
+  margin: 20rpx;
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.08);
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12rpx 0;
+  border-bottom: 1rpx solid #f5f5f5;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.result-item:first-child {
+  padding-top: 0;
+}
+
+.result-item .label {
+  color: #666;
+  font-size: 26rpx;
+}
+
+.result-item .value {
+  color: #333;
+  font-size: 32rpx;
+  font-weight: 500;
+}
+
+.price-up,
+.price-down {
+  font-size: 32rpx;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 8rpx;
+}
+
+.price-up {
+  color: #ff4d4f;
+}
+
+.price-down {
+  color: #52c41a;
+}
+
+.arrow-up,
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 10rpx solid transparent;
+  border-right: 10rpx solid transparent;
+  position: relative;
+}
+
+.arrow-up {
+  border-bottom: 10rpx solid #ff4d4f;
+}
+
+.arrow-down {
+  border-top: 10rpx solid #52c41a;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20rpx;
+  margin-top: 20rpx;
+  background: transparent;
+  box-shadow: none;
+}
+
+.button-container .button-inner {
+  display: flex;
+  max-width: 680rpx;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.button-container button {
+  flex: 1;
+  height: 88rpx;
+  max-width: 240rpx;
+  line-height: 88rpx;
+  font-size: 32rpx;
+  border-radius: 44rpx;
+  margin: 0 12rpx;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container button[type="primary"] {
+  background: #007aff;
+  color: #fff;
+  font-weight: 500;
+}
+
+.button-container button[type="default"] {
+  background: #f5f5f5;
+  color: #666;
+  font-weight: 400;
+}
+
+.button-container button:active {
+  opacity: 0.8;
+  transform: scale(0.98);
+  transition: all 0.2s;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10rpx);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.result-container {
+  animation: fadeIn 0.3s ease-out;
+}
+
+.result-item .value,
+.price-up,
+.price-down {
+  transition: all 0.3s ease-out;
+}

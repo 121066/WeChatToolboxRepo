@@ -1,0 +1,116 @@
+<scroll-view class="scrollarea" scroll-y type="list">
+
+<view class="container">
+ <!-- 顶部切换标签 -->
+ <view class="tab-container">
+   <view 
+     wx:for="{{tabList}}" 
+     wx:key="id"
+     class="tab-item {{isAdd === item.id ? 'active' : ''}}"
+     data-name="{{item.id}}"
+     bindtap="onTab"
+   >
+     {{item.title}}
+   </view>
+ </view>
+  <!-- 输入表单 -->
+ <view class="form-container">
+   <!-- 成本价 -->
+   <view class="form-item">
+     <text class="label">成本价格</text>
+     <input 
+       type="digit"
+       value="{{stockInfo.cost}}"
+       data-name="cost"
+       bindinput="onChangeRow"
+       placeholder="请输入价格"
+     />
+   </view>
+    <!-- 持仓数量 -->
+   <view class="form-item">
+     <text class="label">持仓数量</text>
+     <input 
+       type="number"
+       value="{{stockInfo.position}}"
+       data-name="position"
+       bindinput="onChangeRow"
+       placeholder="请输入数量"
+     />
+   </view>
+    <!-- 加仓/减仓数量输入 -->
+   <view class="form-item">
+     <text class="label">{{isAdd === '1' ? '加仓数量' : '减仓数量'}}</text>
+     <input 
+       type="number"
+       value="{{stockInfo.addNum}}"
+       data-name="addNum"
+       bindinput="onChangeRow"
+       placeholder="{{isAdd === '1' ? '请输入加仓数量' : '请输入减仓数量'}}"
+     />
+   </view>
+    <!-- 快捷数量选择 -->
+   <view class="quick-input">
+     <text class="label">快捷选择</text>
+     <view class="quick-buttons">
+       <button 
+         wx:for="{{[100, 200, 300, 500, 1000]}}" 
+         wx:key="*this"
+         size="mini"
+         class="{{stockInfo.addNum == item ? 'active' : ''}}"
+         bindtap="onQuickSelect"
+         data-value="{{item}}"
+       >{{item}}</button>
+     </view>
+   </view>
+    <!-- 加仓/减仓价格 -->
+   <view class="form-item">
+     <text class="label">{{isAdd === '1' ? '加仓价格' : '减仓价格'}}</text>
+     <input 
+       type="digit"
+       value="{{isAdd === '1' ? stockInfo.addCost : stockInfo.reduceCost}}"
+       data-name="{{isAdd === '1' ? 'addCost' : 'reduceCost'}}"
+       bindinput="onChangeRow"
+       placeholder="{{isAdd === '1' ? '请输入加仓价格' : '请输入减仓价格'}}"
+     />
+   </view>
+    <!-- 手续费率 -->
+   <view class="form-item">
+     <text class="label">手续费率(%)</text>
+     <input 
+       type="digit"
+       value="{{stockInfo.rate}}"
+       data-name="rate"
+       bindinput="onChangeRow"
+       placeholder="请输入费率"
+     />
+   </view>
+ </view>
+  <!-- 计算结果 -->
+ <view class="result-container">
+   <view class="result-item">
+     <text class="label">最终成本</text>
+     <text class="value">{{stockInfo.result || '--'}}</text>
+   </view>
+   <view class="result-item">
+     <text class="label">涨停价格</text>
+     <view class="price-up">
+       <text>{{stockInfo.dailyLimit || '--'}}</text>
+       <view class="arrow-up"></view>
+     </view>
+   </view>
+   <view class="result-item">
+     <text class="label">跌停价格</text>
+     <view class="price-down">
+       <text>{{stockInfo.limitDown || '--'}}</text>
+       <view class="arrow-down"></view>
+     </view>
+   </view>
+ </view>
+  <!-- 操作按钮 -->
+ <view class="button-container">
+   <button type="primary" bindtap="isCalculate">计算</button>
+   <button type="default" bindtap="isRest">重置</button>
+ </view>
+</view>
+
+</scroll-view>

@@ -1,0 +1,160 @@
+/* pages/setting/setting.wxss *//**index.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+  width: 80%;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.avatar-wrapper {
+  padding: 0;
+  width: 56px !important;
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+.nickname-wrapper {
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border-top: .5px solid rgba(0, 0, 0, 0.1);
+  border-bottom: .5px solid rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.nickname-label {
+  width: 105px;
+}
+
+.nickname-input {
+  flex: 1;
+}
+.main{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+}
+.tabList{
+  display: flex;
+  flex-direction: row;
+}
+.tabList-item{
+  margin: 0 5px;
+  /* border: 1px solid 3fc746; */
+  padding: 5px 10px;
+  color: #237ffa;
+  border-radius: 2px;
+  /* #3fc746 */
+}
+.calculate{
+  display: flex;
+  flex-direction: row;
+  margin:5px;
+  justify-content: flex-start;
+}
+.calculate-text{
+  width: 120px;
+  text-align: right;
+}
+.calculate-item{
+  min-width: 200px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 30px;
+  align-items: center;
+}
+.calculate-item-input{
+  border: 1px solid #eee;
+  padding: 5px 5px;
+  border-radius: 4px;
+}
+.border-input{
+  border: none;
+}
+.add{
+  /* background: #ff301c; */
+  background: rgb(226, 243, 254);
+}
+.daily{
+  color: #ff301c;
+}
+.down{
+  color: #3fc746 ;
+}
+.icon-down{
+  position: relative;
+}
+.icon-down::after{
+  position: absolute;
+  content: '';
+  width: 2px;
+  height: 10px;
+  background-color: #3fc746;
+  top: 10px;
+  right: 10px;
+
+}
+.icon-down::before{
+  position: absolute;
+  content: '';
+ 
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #3fc746;
+  top: 20px;
+  right: 6px;
+}
+.icon-daily{
+  position: relative;
+}
+.icon-daily::after{
+  position: absolute;
+  content: '';
+  width: 2px;
+  height: 10px;
+  background-color: #ff301c;
+  top: 10px;
+  right: 10px;
+
+}
+.icon-daily::before{
+  position: absolute;
+  content: '';
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #ff301c;
+  top: 5px;
+  right: 6px;
+}

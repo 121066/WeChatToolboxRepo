@@ -1,0 +1,259 @@
+/**index.wxss**/
+page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.scrollarea {
+  flex: 1;
+  overflow-y: hidden;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #aaa;
+  width: 80%;
+}
+
+.userinfo-avatar {
+  overflow: hidden;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.usermotto {
+  margin-top: 200px;
+}
+
+.avatar-wrapper {
+  padding: 0;
+  width: 56px !important;
+  border-radius: 8px;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.avatar {
+  display: block;
+  width: 56px;
+  height: 56px;
+}
+
+.nickname-wrapper {
+  display: flex;
+  width: 100%;
+  padding: 16px;
+  box-sizing: border-box;
+  border-top: 0.5px solid rgba(0, 0, 0, 0.1);
+  border-bottom: 0.5px solid rgba(0, 0, 0, 0.1);
+  color: black;
+}
+
+.nickname-label {
+  width: 105px;
+}
+
+.nickname-input {
+  flex: 1;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80px;
+}
+.tabList {
+  display: flex;
+  flex-direction: row;
+}
+.tabList-item {
+  margin: 0 5px;
+  /* border: 1px solid 3fc746; */
+  padding: 5px 10px;
+  color: #237ffa;
+  border-radius: 2px;
+  /* #3fc746 */
+}
+.calculate {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  justify-content: flex-start;
+}
+.calculate-text {
+  width: 90px;
+  text-align: right;
+}
+.calculate-item {
+  min-width: 200px;
+  display: flex;
+  flex-direction: row;
+  margin-left: 30px;
+  align-items: center;
+}
+.calculate-item-input {
+  border: 1px solid #eee;
+  padding: 5px 5px;
+  border-radius: 4px;
+}
+.border-input {
+  border: none;
+}
+.add {
+  /* background: #ff301c; */
+  background: rgb(226, 243, 254);
+}
+.daily {
+  color: #ff301c;
+}
+.down {
+  color: #3fc746;
+}
+.icon-down {
+  position: relative;
+}
+.icon-down::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 10px;
+  background-color: #3fc746;
+  top: 10px;
+  right: 10px;
+}
+.icon-down::before {
+  position: absolute;
+  content: "";
+
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #3fc746;
+  top: 20px;
+  right: 6px;
+}
+.icon-daily {
+  position: relative;
+}
+.icon-daily::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 10px;
+  background-color: #ff301c;
+  top: 10px;
+  right: 10px;
+}
+.icon-daily::before {
+  position: absolute;
+  content: "";
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #ff301c;
+  top: 5px;
+  right: 6px;
+}
+
+.container {
+  padding: 20rpx;
+}
+
+.tab-container {
+  display: flex;
+  margin-bottom: 30rpx;
+  border-radius: 8rpx;
+  overflow: hidden;
+  border: 2rpx solid #007aff;
+}
+
+.tab-item {
+  flex: 1;
+  text-align: center;
+  padding: 20rpx 0;
+  background: #fff;
+  color: #007aff;
+}
+
+.tab-item.active {
+  background: #007aff;
+  color: #fff;
+}
+
+.form-container {
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.form-item {
+  margin-bottom: 20rpx;
+}
+
+.label {
+  display: block;
+  color: #333;
+  margin-bottom: 10rpx;
+  font-size: 28rpx;
+}
+
+input {
+  border: 2rpx solid #eee;
+  padding: 16rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+}
+
+.quick-input {
+  margin: 20rpx 0;
+}
+
+.quick-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10rpx;
+}
+
+.quick-buttons button {
+  margin: 0;
+  background: #f5f5f5;
+  color: #333;
+}
+
+.result-container {
+  margin: 30rpx 0;
+  background: #fff;
+  padding: 20rpx;
+  border-radius: 12rpx;
+  box-shadow: 0 2rpx 10rpx rgba(0, 0, 0, 0.05);
+}
+
+.result-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20rpx 0;
+  border-bottom: 2rpx solid #eee;
+}
+
+.result-item:last-child {
+  border-bottom: none;
+}
+
+.result-item .value {
+  color: #007aff;
+  font-weight: bold;
+}
+
+.button-container {
+  display: flex;
+  gap: 20rpx;
+  margin-top: 30rpx;
+}
+
+.button-container button {
+  flex: 1;
+}

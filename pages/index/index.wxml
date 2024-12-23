@@ -1,0 +1,56 @@
+<!--index.wxml-->
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="main">
+
+  <!-- tab切换区域 -->
+    <view class="tabList">
+      <view wx:for="{{tabList}}" wx:key="uniqueKey" class="tabList-item" style="{{item.id===isAdd?'background: rgb(226, 243, 254);':''}}">
+        <view data-name="{{item.id}}" bind:tap="onTab">{{item.title}}</view>
+      </view>
+    </view>
+    <!-- 计算区域 -->
+    <view class="calculate">
+    <view class="calculate-item"><view class="calculate-text">成本：</view><input placeholder="请输入成本" data-name="cost" bindinput="onChangeRow" model:value="{{stockInfo.cost}}" class="calculate-item-input" type="text"/></view>
+    </view>
+    <!-- 数量 -->
+    <view class="calculate">
+    <view class="calculate-item"> <view class="calculate-text"> 持股数：</view><input type="number" data-name="postion" bindinput="onChangeRow" placeholder="请输入持仓数量/股" model:value="{{stockInfo.postion}}" class="calculate-item-input" type="text"/></view>
+    </view>
+    <!-- 补仓价格 -->
+    <view class="calculate" wx:if="{{isAdd==='1'}}">
+    <view class="calculate-item"><view class="calculate-text">补仓价格：</view><input data-name="addCost" bindinput="onChangeRow" placeholder="请输入补仓价格" model:value="{{stockInfo.addCost}}" class="calculate-item-input" type="text"/></view>
+    </view>
+    <!-- 减持价格 -->
+    <view class="calculate" wx:else="{{isAdd=='2'}}">
+    <view class="calculate-item"><view class="calculate-text">减持价格：</view><input placeholder="请输入减持价格" data-name="reduceCost" bindinput="onChangeRow" model:value="{{stockInfo.reduceCost}}" class="calculate-item-input" type="text"/></view>
+    </view>
+    <!-- 新增 -->
+    <view class="calculate">
+    <view class="calculate-item"><view class="calculate-text">新增/减持：</view><input placeholder="请输入补仓/减持数量/股" data-name="addNum" bindinput="onChangeRow" model:value="{{stockInfo.addNum}}" class="calculate-item-input" type="text"/></view>
+    </view>
+    
+    <!-- 费率 -->
+    <view class="calculate">
+    <view class="calculate-item"><view class="calculate-text">费率：</view><input data-name="rate" disabled="true" bindinput="onChangeRow" model:value="{{stockInfo.rate}}" class="calculate-item-input border-input" type="text"/></view>
+    </view>
+    <!-- 结果 -->
+    <view class="calculate">
+    <view class="calculate-item"><view class="calculate-text">最终成本：</view><input
+    disabled="true" class="calculate-item-input border-input" data-name="result" bindinput="onChangeRow" model:value="{{stockInfo.result}}" type="text"/></view>
+    </view>
+     <!-- 涨停 -->
+     <view class="calculate" wx:if="{{stockInfo.dailyLimit}}">
+    <view class="calculate-item"><view class="calculate-text daily">涨停：</view><input
+    disabled="true" class="calculate-item-input border-input daily icon-daily" data-name="dailyLimit" bindinput="onChangeRow" model:value="{{stockInfo.dailyLimit}}" type="text"/></view>
+    </view>
+     <!-- 跌停 -->
+     <view class="calculate" wx:if="{{stockInfo.limitDown}}">
+    <view class="calculate-item"><view class="calculate-text down">跌停：</view><input
+    disabled="true" class="calculate-item-input border-input down icon-down" data-name="limitDown" bindinput="onChangeRow" model:value="{{stockInfo.limitDown}}" type="text"/></view>
+    </view>
+    <view  class="calculate">
+    <button bind:tap="isCalculate" style="margin-right: 5px;">计算</button>
+    <button bind:tap="isRest" >重置</button>
+    </view>
+  </view>
+</scroll-view>
