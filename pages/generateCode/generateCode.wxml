@@ -1,0 +1,74 @@
+<view class="container">
+  <!-- 类型切换 -->
+  <view class="type-switch">
+    <view 
+      class="type-item {{codeType === 'qr' ? 'active' : ''}}"
+      bindtap="switchType"
+      data-type="qr"
+    >
+      二维码
+    </view>
+    <view 
+      class="type-item {{codeType === 'bar' ? 'active' : ''}}"
+      bindtap="switchType"
+      data-type="bar"
+    >
+      条形码
+    </view>
+  </view>
+
+  <!-- 输入区域 -->
+  <view class="input-area">
+    <block wx:if="{{codeType === 'qr'}}">
+      <textarea
+        class="input-content"
+        placeholder="请输入要生成二维码的内容"
+        value="{{inputText}}"
+        bindinput="onInput"
+      />
+    </block>
+    <block wx:else>
+      <view class="bar-input">
+        <input
+          class="number-input"
+          type="number"
+          maxlength="13"
+          placeholder="请输入条形码数字(最多13位)"
+          value="{{inputText}}"
+          bindinput="onInput"
+        />
+        <view class="input-tips">常见条形码位数：8位、13位</view>
+      </view>
+    </block>
+  </view>
+
+  <!-- 生成按钮 -->
+  <button 
+    class="generate-button"
+    type="primary" 
+    bindtap="generateCode"
+  >
+    生成{{codeType === 'qr' ? '二维码' : '条形码'}}
+  </button>
+
+  <!-- 预览区域 -->
+  <view class="preview-area" wx:if="{{qrCodeUrl}}">
+    <image class="code-image" src="{{qrCodeUrl}}" mode="aspectFit"/>
+    <button 
+      class="save-button"
+      bindtap="saveImage"
+    >
+      保存图片
+    </button>
+  </view>
+
+  <canvas
+    canvas-id="barcodeCanvas"
+    style="width: {{canvasWidth}}rpx; height: {{canvasHeight}}rpx; position: fixed; left: -9999px;"
+  />
+
+  <canvas
+    canvas-id="qrCanvas"
+    style="width: 400px; height: 400px; position: fixed; left: -9999px;"
+  />
+</view> 

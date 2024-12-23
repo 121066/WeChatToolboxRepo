@@ -1,0 +1,22 @@
+<!--pages/homeIndex/homeIndex.wxml-->
+<view class="container">
+  <!-- 顶部标题 -->
+  <view class="header">
+    <text class="title">工具箱</text>
+  </view>
+
+  <!-- 快捷入口网格 -->
+  <view class="grid">
+    <view 
+      class="grid-item" 
+      wx:for="{{quickEntries}}" 
+      wx:key="id"
+      bindtap="handleNavigate"
+      data-path="{{item.path}}"
+    >
+      <image class="icon" src="{{item.icon}}" mode="aspectFit"/>
+      <text class="entry-title">{{item.title}}</text>
+      <text class="desc">{{item.desc}}</text>
+    </view>
+  </view>
+</view>

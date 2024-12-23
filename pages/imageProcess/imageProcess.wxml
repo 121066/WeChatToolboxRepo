@@ -1,0 +1,86 @@
+<!--pages/imageProcess/imageProcess.wxml-->
+<view class="container">
+  <!-- 图片显示区域 -->
+  <view class="image-container">
+    <block wx:if="{{!tempImagePath}}">
+      <view class="upload-placeholder" bindtap="chooseImage">
+        <image class="upload-icon" src="/assets/icons/upload.png" mode="aspectFit"/>
+        <text>点击选择图片</text>
+      </view>
+    </block>
+    <block wx:else>
+      <image 
+        class="preview-image" 
+        src="{{processedImagePath || tempImagePath}}" 
+        mode="aspectFit"
+      />
+    </block>
+  </view>
+
+  <!-- 尺寸选择 -->
+  <view class="options-container" wx:if="{{showSizeOptions}}">
+    <view class="options-title">选择尺寸</view>
+    <view class="size-options">
+      <view 
+        class="size-item {{selectedSize.id === item.id ? 'active' : ''}}"
+        wx:for="{{sizeOptions}}"
+        wx:key="id"
+        bindtap="selectSize"
+        data-size="{{item}}"
+      >
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 背景色选择 -->
+  <view class="options-container" wx:if="{{selectedSize}}">
+    <view class="options-title">选择背景色</view>
+    <view class="color-options">
+      <view 
+        class="color-item {{selectedColor === item.value ? 'active' : ''}}"
+        wx:for="{{bgColors}}"
+        wx:key="value"
+        style="background-color: {{item.value}}"
+        bindtap="selectBgColor"
+        data-color="{{item.value}}"
+      >
+        {{item.name}}
+      </view>
+    </view>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="button-container">
+    <button 
+      class="action-button"
+      type="primary" 
+      bindtap="saveImage"
+      disabled="{{!processedImagePath}}"
+    >
+      保存图片
+    </button>
+    <button 
+      class="action-button"
+      bindtap="chooseImage"
+    >
+      重新选择
+    </button>
+  </view>
+
+  <!-- 裁剪组件 -->
+  <image-cropper
+    wx:if="{{cropperVisible}}"
+    id="image-cropper"
+    imgSrc="{{tempImagePath}}"
+    bindcomplete="onCropperComplete"
+    width="{{selectedSize.width}}"
+    height="{{selectedSize.height}}"
+  />
+
+  <!-- 画布（用于生成图片） -->
+  <canvas 
+    canvas-id="imageCanvas" 
+    style="width:{{selectedSize.width}}px; height:{{selectedSize.height}}px; position: fixed; left: -9999px;"
+  />
+</view>

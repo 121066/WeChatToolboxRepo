@@ -3,13 +3,17 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/setting/setting",
-    "pages/home/home"
+    "pages/home/home",
+    "pages/homeIndex/homeIndex",
+    "pages/imageProcess/imageProcess",
+    "pages/imageUpload/imageUpload",
+    "pages/generateCode/generateCode"
   ],
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/home/home",
-        "text": "补仓计算"
+        "pagePath": "pages/homeIndex/homeIndex",
+        "text": "工具箱"
       },
       {
         "pagePath": "pages/index/index",
@@ -29,5 +33,10 @@
   "style": "v2",
   "componentFramework": "glass-easel",
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "permission": {
+    "scope.writePhotosAlbum": {
+      "desc": "保存生成的二维码图片"
+    }
+  }
 }
